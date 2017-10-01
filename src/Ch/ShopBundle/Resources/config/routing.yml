@@ -1,0 +1,28 @@
+ch_shophomepage:
+    path:     /
+    defaults: { _controller: "ChShopBundle:Page:index" }
+    requirements:
+             methods:  GET
+
+ch_product_show:
+    path:  product/{id}
+    defaults: { _controller: "ChShopBundle:Product:show" }
+    requirements:
+        methods:  GET
+        id: \d+
+
+ch_category_show:
+    path:  category/{id}
+    defaults: { _controller: "ChShopBundle:Category:show" }
+    requirements:
+        methods:  GET
+        id: \d+
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /admin
+    defaults: { _controller: SonataAdminBundle:Core:dashboard }
+    requirements:
+         methods:  GET|POST
+

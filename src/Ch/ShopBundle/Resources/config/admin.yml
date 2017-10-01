@@ -1,0 +1,48 @@
+services:
+    app.admin.product:
+        class: Ch\ShopBundle\Admin\ProductAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Shop", label: "Products" }
+        arguments:
+            - ~
+            - Ch\ShopBundle\Entity\Product
+            - ~
+        calls:
+            - [ setTranslationDomain, [ChShopBundle]]
+        public: true
+
+    app.admin.category:
+            class: Ch\ShopBundle\Admin\CategoryAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Shop", label: "Categories" }
+            arguments:
+                - ~
+                - Ch\ShopBundle\Entity\Category
+                - ~
+            calls:
+                - [ setTranslationDomain, [ChShopBundle]]
+            public: true
+
+    app.admin.user:
+                class: Ch\ShopBundle\Admin\UserAdmin
+                tags:
+                    - { name: sonata.admin, manager_type: orm, group: "User managment", label: "Users" }
+                arguments:
+                    - ~
+                    - Ch\ShopBundle\Entity\User
+                    - ~
+                calls:
+                    - [ setTranslationDomain, [ChShopBundle]]
+                public: true
+
+    app.admin.group:
+                class: Ch\ShopBundle\Admin\GroupAdmin
+                tags:
+                    - { name: sonata.admin, manager_type: orm, group: "User managment", label: "Groups" }
+                arguments:
+                    - ~
+                    - Ch\ShopBundle\Entity\Group
+                    - ~
+                calls:
+                    - [ setTranslationDomain, [ChShopBundle]]
+                public: true

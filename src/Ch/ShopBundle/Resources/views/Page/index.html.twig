@@ -1,0 +1,25 @@
+{% extends 'ChShopBundle::layout.html.twig' %}
+
+{% block body %}
+    {% for product in products %}
+        <article class="blog">
+            <header>
+                <h2><a href="{{ path('ch_product_show', { 'id': product.id }) }}">{{ product.name }}</a></h2>
+            </header>
+
+            <img src="{{ asset(['images/', product.image]|join) }}" />
+            <div class="snippet">
+                <p>{{ product.description(500) }}</p>
+                <p class="continue"><a href="{{ path('ch_product_show', { 'id': product.id }) }}">Continue reading...</a></p>
+            </div>
+
+            <footer class="meta">
+                <p>Categories: -</p>
+
+            </footer>
+        </article>
+    {% else %}
+        <p>There are no blog entries for symblog</p>
+    {% endfor %}
+{% endblock %}
+

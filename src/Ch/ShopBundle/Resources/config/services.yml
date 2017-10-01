@@ -1,0 +1,11 @@
+services:
+#    ch_shop.example:
+#        class: Ch\ShopBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+      blogger_blog.twig.extension:
+              class: Ch\ShopBundle\Twig\Extensions\ChShopExtension
+              arguments:
+                     doctrine : '@doctrine'
+              tags:
+                  - { name: twig.extension }
